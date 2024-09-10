@@ -649,7 +649,7 @@
 	ignore-pm-notify;
 	keep-power-in-suspend;
 	cd-gpios = <&gpio1 11 GPIO_ACTIVE_LOW>; /* CD GPIO */
-	status = "disabled";
+	status = "okay";
 };
 
 &tsadc {

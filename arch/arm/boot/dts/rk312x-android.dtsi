@@ -28,7 +28,7 @@
 		rockchip,irq-mode-enable = <1>;
 		rockchip,baudrate = <115200>;  /* Only 115200 and 1500000 */
 		interrupts = <GIC_SPI 127 IRQ_TYPE_LEVEL_LOW>;
-		status = "okay";
+		status = "disabled";
 	};
 
 	firmware {
