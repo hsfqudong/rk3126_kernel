@@ -1,0 +1,295 @@
+/*
+ * This file is dual-licensed: you can use it either under the terms
+ * of the GPL or the X11 license, at your option. Note that this dual
+ * licensing only applies to this file, and not this project as a
+ * whole.
+ *
+ *  a) This file is free software; you can redistribute it and/or
+ *     modify it under the terms of the GNU General Public License as
+ *     published by the Free Software Foundation; either version 2 of the
+ *     License, or (at your option) any later version.
+ *
+ *     This file is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ * Or, alternatively,
+ *
+ *  b) Permission is hereby granted, free of charge, to any person
+ *     obtaining a copy of this software and associated documentation
+ *     files (the "Software"), to deal in the Software without
+ *     restriction, including without limitation the rights to use,
+ *     copy, modify, merge, publish, distribute, sublicense, and/or
+ *     sell copies of the Software, and to permit persons to whom the
+ *     Software is furnished to do so, subject to the following
+ *     conditions:
+ *
+ *     The above copyright notice and this permission notice shall be
+ *     included in all copies or substantial portions of the Software.
+ *
+ *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ *     OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+#include "rk312x.dtsi"
+
+/ {
+	compatible = "rockchip,rk3126";
+};
+
+&cru {
+	compatible = "rockchip,rk3126-cru";
+};
+
+&dsi {
+	status = "okay";
+
+	panel@0 {
+		compatible = "simple-panel-dsi";
+		reg = <0>;
+		backlight = <&backlight>;
+		enable-gpios = <&gpio1 8 GPIO_ACTIVE_HIGH>;
+		reset-gpios = <&gpio2 9 GPIO_ACTIVE_HIGH>;
+		prepare-delay-ms = <20>;
+		reset-delay-ms = <20>;
+		init-delay-ms = <20>;
+		enable-delay-ms = <120>;
+		disable-delay-ms = <20>;
+		unprepare-delay-ms = <20>;
+
+		width-mm = <153>;
+		height-mm = <85>;
+
+		dsi,lanes = <4>;
+
+		panel-init-sequence = [
+			39 00 04 FF 98 81 03
+			15 00 02 01 00 
+			15 00 02 02 00 
+			15 00 02 03 73 
+			15 00 02 04 00 
+			15 00 02 05 00 
+			15 00 02 06 08 
+			15 00 02 07 00 
+			15 00 02 08 00 
+			15 00 02 09 00 
+			15 00 02 0A 01 
+			15 00 02 0B 01 
+			15 00 02 0C 00 
+			15 00 02 0D 01 
+			15 00 02 0E 01 
+			15 00 02 0F 00 
+			15 00 02 10 00 
+			15 00 02 11 00 
+			15 00 02 12 00 
+			15 00 02 13 1F //00
+			15 00 02 14 1F //00
+			15 00 02 15 00 
+			15 00 02 16 00 
+			15 00 02 17 00 
+			15 00 02 18 00 
+			15 00 02 19 00 
+			15 00 02 1A 00 
+			15 00 02 1B 00 
+			15 00 02 1C 00 
+			15 00 02 1D 00 
+			15 00 02 1E 40 
+			15 00 02 1F C0 
+			15 00 02 20 06 
+			15 00 02 21 01 
+			15 00 02 22 06 
+			15 00 02 23 01 
+			15 00 02 24 88 
+			15 00 02 25 88 
+			15 00 02 26 00 
+			15 00 02 27 00 
+			15 00 02 28 3B 
+			15 00 02 29 03 
+			15 00 02 2A 00 
+			15 00 02 2B 00 
+			15 00 02 2C 00 
+			15 00 02 2D 00 
+			15 00 02 2E 00 
+			15 00 02 2F 00 
+			15 00 02 30 00 
+			15 00 02 31 00 
+			15 00 02 32 00 
+			15 00 02 33 00 
+			15 00 02 34 00 
+			15 00 02 35 00 
+			15 00 02 36 00 
+			15 00 02 37 00 
+			15 00 02 38 00 
+			15 00 02 39 00 
+			15 00 02 3A 00 
+			15 00 02 3B 00 
+			15 00 02 3C 00 
+			15 00 02 3D 00 
+			15 00 02 3E 00 
+			15 00 02 3F 00 
+			15 00 02 40 00 
+			15 00 02 41 00 
+			15 00 02 42 00 
+			15 00 02 43 00 
+			15 00 02 44 00 
+			15 00 02 50 01 
+			15 00 02 51 23 
+			15 00 02 52 45 
+			15 00 02 53 67 
+			15 00 02 54 89 
+			15 00 02 55 AB 
+			15 00 02 56 01 
+			15 00 02 57 23 
+			15 00 02 58 45 
+			15 00 02 59 67 
+			15 00 02 5A 89 
+			15 00 02 5B AB 
+			15 00 02 5C CD 
+			15 00 02 5D EF 
+			15 00 02 5E 00 
+			15 00 02 5F 01 
+			15 00 02 60 01 
+			15 00 02 61 06 
+			15 00 02 62 06 
+			15 00 02 63 07 
+			15 00 02 64 07 
+			15 00 02 65 00 
+			15 00 02 66 00 
+			15 00 02 67 02 
+			15 00 02 68 02 
+			15 00 02 69 05 
+			15 00 02 6A 05 
+			15 00 02 6B 02 
+			15 00 02 6C 0D 
+			15 00 02 6D 0D 
+			15 00 02 6E 0C 
+			15 00 02 6F 0C 
+			15 00 02 70 0F 
+			15 00 02 71 0F 
+			15 00 02 72 0E 
+			15 00 02 73 0E 
+			15 00 02 74 02 
+			15 00 02 75 01 
+			15 00 02 76 01 
+			15 00 02 77 06 
+			15 00 02 78 06 
+			15 00 02 79 07 
+			15 00 02 7A 07 
+			15 00 02 7B 00 
+			15 00 02 7C 00 
+			15 00 02 7D 02 
+			15 00 02 7E 02 
+			15 00 02 7F 05 
+			15 00 02 80 05 
+			15 00 02 81 02 
+			15 00 02 82 0D 
+			15 00 02 83 0D 
+			15 00 02 84 0C 
+			15 00 02 85 0C 
+			15 00 02 86 0F 
+			15 00 02 87 0F 
+			15 00 02 88 0E 
+			15 00 02 89 0E 
+			15 00 02 8A 02 
+			39 00 04 FF 98 81 04
+			15 00 02 3B C0
+			15 00 02 6C 15
+			15 00 02 6E 2A
+			15 00 02 6F 33
+			15 00 02 8D 1B
+			15 00 02 87 BA
+			15 00 02 3A 24
+			15 00 02 26 76
+			15 00 02 B2 D1
+			39 00 04 FF 98 81 01
+			15 00 02 22 0A
+			15 00 02 31 00
+			15 00 02 40 53
+			15 00 02 43 66
+			15 00 02 53 4C
+			15 00 02 50 87
+			15 00 02 51 82
+			15 00 02 60 15
+			15 00 02 61 01
+			15 00 02 62 0C
+			15 00 02 63 00
+			15 00 02 A0 00
+			15 00 02 A1 13
+			15 00 02 A2 23
+			15 00 02 A3 14
+			15 00 02 A4 16
+			15 00 02 A5 29
+			15 00 02 A6 1E
+			15 00 02 A7 1D
+			15 00 02 A8 86
+			15 00 02 A9 1E
+			15 00 02 AA 29
+			15 00 02 AB 74
+			15 00 02 AC 19
+			15 00 02 AD 17
+			15 00 02 AE 4B
+			15 00 02 AF 20
+			15 00 02 B0 26
+			15 00 02 B1 4C
+			15 00 02 B2 5D
+			15 00 02 B3 3F
+			15 00 02 C0 00
+			15 00 02 C1 13
+			15 00 02 C2 23
+			15 00 02 C3 14
+			15 00 02 C4 16
+			15 00 02 C5 29
+			15 00 02 C6 1E
+			15 00 02 C7 1D
+			15 00 02 C8 86
+			15 00 02 C9 1E
+			15 00 02 CA 29
+			15 00 02 CB 74
+			15 00 02 CC 19
+			15 00 02 CD 17
+			15 00 02 CE 4B
+			15 00 02 CF 20
+			15 00 02 D0 26
+			15 00 02 D1 4C
+			15 00 02 D2 5D
+			15 00 02 D3 3F
+			39 00 04 FF 98 81 00
+			15 00 02 35 00
+			05 C8 01 11 
+			05 14 01 29
+		];
+		
+		panel-exit-sequence = [
+			05 00 01 28
+			05 78 01 10
+		];
+
+		display-timings {
+			native-mode = <&timing0>;
+			compatible = "rockchip,display-subsystem";
+
+			timing0: timing0 {
+				clock-frequency = <74250000>;
+				hactive = <800>;
+				vactive = <1280>;
+				hback-porch = <20>;
+				hfront-porch = <40>;
+				vback-porch = <8>;
+				vfront-porch = <20>;
+				hsync-len = <20>;
+				vsync-len = <4>;
+				hsync-active = <0>;
+				vsync-active = <0>;
+				de-active = <0>;
+				pixelclk-active = <0>;
+			};
+		};
+	};
+};
