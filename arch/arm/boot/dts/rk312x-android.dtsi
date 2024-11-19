@@ -62,6 +62,10 @@
 	};
 };
 
+&uart2 {
+	status = "disabled";
+};
+
 &cif_new {
 	memory-region = <&cma_region>;
 };

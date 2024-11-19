@@ -276,7 +276,7 @@
 			compatible = "rockchip,display-subsystem";
 
 			timing0: timing0 {
-				clock-frequency = <74250000>;
+				clock-frequency = <68000000>;
 				hactive = <800>;
 				vactive = <1280>;
 				hback-porch = <20>;
